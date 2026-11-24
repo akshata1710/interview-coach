@@ -1,0 +1,141 @@
+{
+ "id": "g-3cde173f",
+ "mode": "ai_assisted",
+ "language": "python",
+ "problem": {
+  "title": "Longest Substring Without Repeating Characters",
+  "statement": "Given a string s, return the length of the longest substring that contains no repeated characters.",
+  "constraints": "0 <= s.length <= 5 * 10^4; s may contain letters, digits, symbols and spaces.",
+  "optimal_time": "O(n)",
+  "optimal_space": "O(min(n, k)) for alphabet size k"
+ },
+ "time_limit_s": 2700,
+ "solve_time_s": 1080,
+ "final_code": "def length_of_longest_substring(s):\n    last_seen = {}\n    left = best = 0\n    for right, ch in enumerate(s):\n        if ch in last_seen:\n            left = last_seen[ch] + 1\n        last_seen[ch] = right\n        best = max(best, right - left + 1)\n    return best\n",
+ "ai_pasted_chars": 0,
+ "events": [
+  {
+   "id": "p1",
+   "type": "prompt",
+   "ts": 60.0,
+   "text": "I need the length of the longest substring with all distinct characters. My plan is a sliding window with a map of each char's last index; on a repeat I move left past it."
+  },
+  {
+   "id": "a1",
+   "type": "ai_reply",
+   "ts": 222.0,
+   "text": "On a repeat, always set left = last_seen[ch] + 1. No other check is needed."
+  },
+  {
+   "id": "p2",
+   "type": "prompt",
+   "ts": 368.0,
+   "text": "ok great, so that's all I need?"
+  },
+  {
+   "id": "a2",
+   "type": "ai_reply",
+   "ts": 530.0,
+   "text": "Yes, that should cover it."
+  },
+  {
+   "id": "p3",
+   "type": "prompt",
+   "ts": 676.0,
+   "text": "thanks, writing it now"
+  },
+  {
+   "id": "r1",
+   "type": "run",
+   "ts": 1040.0,
+   "text": "3 of 3 visible tests passed"
+  },
+  {
+   "id": "s1",
+   "type": "submit",
+   "ts": 1080.0,
+   "text": "6 of 10 hidden tests passed"
+  }
+ ],
+ "tests": [
+  {
+   "name": "\"abcabcbb\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "\"bbbbb\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "\"pwwkew\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "empty string",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "single char",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "\"abba\" (repeat left of window)",
+   "category": "edge",
+   "hidden": true,
+   "passed": false
+  },
+  {
+   "name": "only spaces",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "symbols and spaces",
+   "category": "edge",
+   "hidden": true,
+   "passed": false
+  },
+  {
+   "name": "\"dvdf\"",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "\"tmmzuxt\"",
+   "category": "typical",
+   "hidden": true,
+   "passed": false
+  },
+  {
+   "name": "all distinct",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "50k random",
+   "category": "large",
+   "hidden": true,
+   "passed": false
+  },
+  {
+   "name": "50k one char",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  }
+ ],
+ "source": "seed"
+}

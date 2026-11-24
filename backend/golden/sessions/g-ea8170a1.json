@@ -1,0 +1,153 @@
+{
+ "id": "g-ea8170a1",
+ "mode": "ai_assisted",
+ "language": "python",
+ "problem": {
+  "title": "Two Sum",
+  "statement": "Given an array of integers nums and an integer target, return the indices of the two numbers that add up to target. Each input has exactly one solution, and you may not use the same element twice. Return the indices in any order.",
+  "constraints": "2 <= nums.length <= 10^4; -10^9 <= nums[i], target <= 10^9; exactly one valid answer exists.",
+  "optimal_time": "O(n)",
+  "optimal_space": "O(n)"
+ },
+ "time_limit_s": 2700,
+ "solve_time_s": 2565,
+ "final_code": "def two_sum(nums, target):\n    for i in range(len(nums)):\n        for j in range(i + 1, len(nums)):\n            if nums[i] + nums[j] == target:\n                return [i, j]\n    return []\n",
+ "ai_pasted_chars": 159,
+ "events": [
+  {
+   "id": "p1",
+   "type": "prompt",
+   "ts": 60.0,
+   "text": "two sum leetcode, solve in python"
+  },
+  {
+   "id": "a1",
+   "type": "ai_reply",
+   "ts": 281.0,
+   "text": "Two options: nested loops in O(n^2), or a hash map of seen values in O(n)."
+  },
+  {
+   "id": "p2",
+   "type": "prompt",
+   "ts": 486.0,
+   "text": "just give me the code"
+  },
+  {
+   "id": "a2",
+   "type": "ai_reply",
+   "ts": 707.0,
+   "text": "Here's a straightforward version:\n\n```python\ndef two_sum(nums, target):\n    for i in range(len(nums)):\n        for j in range(i + 1, len(nums)):\n            if nums[i] + nums[j] == target:\n                return [i, j]\n    return []\n```"
+  },
+  {
+   "id": "p3",
+   "type": "prompt",
+   "ts": 912.0,
+   "text": "it doesn't work"
+  },
+  {
+   "id": "a3",
+   "type": "ai_reply",
+   "ts": 1133.0,
+   "text": "Can you share the failing input and what you got?"
+  },
+  {
+   "id": "p4",
+   "type": "prompt",
+   "ts": 1338.0,
+   "text": "doesn't work, fix it"
+  },
+  {
+   "id": "a4",
+   "type": "ai_reply",
+   "ts": 1559.0,
+   "text": "Without the error it's hard to tell. Here's the code again; check your function name.\n\n```python\ndef two_sum(nums, target):\n    for i in range(len(nums)):\n        for j in range(i + 1, len(nums)):\n            if nums[i] + nums[j] == target:\n                return [i, j]\n    return []\n```"
+  },
+  {
+   "id": "p5",
+   "type": "prompt",
+   "ts": 1764.0,
+   "text": "try again"
+  },
+  {
+   "id": "a5",
+   "type": "ai_reply",
+   "ts": 1985.0,
+   "text": "The code above is correct for the examples; it may be slow on large inputs."
+  },
+  {
+   "id": "r1",
+   "type": "run",
+   "ts": 2525.0,
+   "text": "3 of 3 visible tests passed"
+  },
+  {
+   "id": "s1",
+   "type": "submit",
+   "ts": 2565.0,
+   "text": "7 of 7 hidden tests passed"
+  }
+ ],
+ "tests": [
+  {
+   "name": "[2,7,11,15], 9",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "[3,2,4], 6",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "[3,3], 6",
+   "category": "edge",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "negatives",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "duplicates",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "zeros",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "two elements",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "answer at the end",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "large values",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "10k elements",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  }
+ ],
+ "source": "seed"
+}

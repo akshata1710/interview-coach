@@ -1,0 +1,129 @@
+{
+ "id": "g-ae806716",
+ "mode": "interviewer",
+ "language": "python",
+ "problem": {
+  "title": "Two Sum",
+  "statement": "Given an array of integers nums and an integer target, return the indices of the two numbers that add up to target. Each input has exactly one solution, and you may not use the same element twice. Return the indices in any order.",
+  "constraints": "2 <= nums.length <= 10^4; -10^9 <= nums[i], target <= 10^9; exactly one valid answer exists.",
+  "optimal_time": "O(n)",
+  "optimal_space": "O(n)"
+ },
+ "time_limit_s": 2700,
+ "solve_time_s": 1350,
+ "final_code": "def two_sum(nums, target):\n    d = {}\n    res = []\n    for i in range(len(nums)):\n        n = nums[i]\n        t = target - n\n        if t in d.keys():\n            res = [d[t], i]\n            return res\n        else:\n            d[n] = i\n    return res\n",
+ "ai_pasted_chars": 0,
+ "events": [
+  {
+   "id": "p1",
+   "type": "prompt",
+   "ts": 60.0,
+   "text": "I need indices of two numbers in an array that add up to a target. Array up to 10^4 ints, values can be negative, exactly one answer, can't reuse an element."
+  },
+  {
+   "id": "a1",
+   "type": "ai_reply",
+   "ts": 236.0,
+   "text": "Good. What's your first approach, and its complexity?"
+  },
+  {
+   "id": "p2",
+   "type": "prompt",
+   "ts": 396.0,
+   "text": "I'm thinking a hash map from value to index so I can do it in one pass, O(n)."
+  },
+  {
+   "id": "a2",
+   "type": "ai_reply",
+   "ts": 572.0,
+   "text": "Before you code: what input would break a naive version of that?"
+  },
+  {
+   "id": "p3",
+   "type": "prompt",
+   "ts": 732.0,
+   "text": "If I insert the current number before checking for its complement, can [3,3] with target 6 break?"
+  },
+  {
+   "id": "a3",
+   "type": "ai_reply",
+   "ts": 908.0,
+   "text": "Think it through and tell me your answer."
+  },
+  {
+   "id": "r1",
+   "type": "run",
+   "ts": 1310.0,
+   "text": "3 of 3 visible tests passed"
+  },
+  {
+   "id": "s1",
+   "type": "submit",
+   "ts": 1350.0,
+   "text": "7 of 7 hidden tests passed"
+  }
+ ],
+ "tests": [
+  {
+   "name": "[2,7,11,15], 9",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "[3,2,4], 6",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "[3,3], 6",
+   "category": "edge",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "negatives",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "duplicates",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "zeros",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "two elements",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "answer at the end",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "large values",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "10k elements",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  }
+ ],
+ "source": "seed"
+}

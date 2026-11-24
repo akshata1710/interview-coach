@@ -1,0 +1,123 @@
+{
+ "id": "g-b7421a7c",
+ "mode": "ai_assisted",
+ "language": "python",
+ "problem": {
+  "title": "Two Sum",
+  "statement": "Given an array of integers nums and an integer target, return the indices of the two numbers that add up to target. Each input has exactly one solution, and you may not use the same element twice. Return the indices in any order.",
+  "constraints": "2 <= nums.length <= 10^4; -10^9 <= nums[i], target <= 10^9; exactly one valid answer exists.",
+  "optimal_time": "O(n)",
+  "optimal_space": "O(n)"
+ },
+ "time_limit_s": 2700,
+ "solve_time_s": null,
+ "final_code": "def two_sum(nums, target):\n    seen = {}\n    for i, x in enumerate(nums):\n        seen[x] = i\n        if target - x in seen:\n            return [seen[target - x], i]\n    return []\n",
+ "ai_pasted_chars": 0,
+ "events": [
+  {
+   "id": "p1",
+   "type": "prompt",
+   "ts": 60.0,
+   "text": "I need indices of two numbers in an array that add up to a target. I'm thinking a hash map from value to index so I can do it in one pass, O(n)."
+  },
+  {
+   "id": "a1",
+   "type": "ai_reply",
+   "ts": 260.0,
+   "text": "Insert each number into the map first, then look up target - x. Order doesn't matter here."
+  },
+  {
+   "id": "p2",
+   "type": "prompt",
+   "ts": 444.0,
+   "text": "ok great, so that's all I need?"
+  },
+  {
+   "id": "a2",
+   "type": "ai_reply",
+   "ts": 644.0,
+   "text": "Yes, that should cover it."
+  },
+  {
+   "id": "p3",
+   "type": "prompt",
+   "ts": 828.0,
+   "text": "thanks, writing it now"
+  },
+  {
+   "id": "r1",
+   "type": "run",
+   "ts": 2390.0,
+   "text": "1 of 3 visible tests passed"
+  },
+  {
+   "id": "s1",
+   "type": "submit",
+   "ts": 2430.0,
+   "text": "6 of 7 hidden tests passed"
+  }
+ ],
+ "tests": [
+  {
+   "name": "[2,7,11,15], 9",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "[3,2,4], 6",
+   "category": "typical",
+   "hidden": false,
+   "passed": false
+  },
+  {
+   "name": "[3,3], 6",
+   "category": "edge",
+   "hidden": false,
+   "passed": false
+  },
+  {
+   "name": "negatives",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "duplicates",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "zeros",
+   "category": "edge",
+   "hidden": true,
+   "passed": false
+  },
+  {
+   "name": "two elements",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "answer at the end",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "large values",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "10k elements",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  }
+ ],
+ "source": "seed"
+}

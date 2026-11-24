@@ -1,0 +1,182 @@
+{
+ "g-96f38469": {
+  "seed": "seed-two-sum-handoff",
+  "problem": "two-sum",
+  "mode": "ai_assisted",
+  "code": "clean"
+ },
+ "g-5c49b4cd": {
+  "seed": "seed-two-sum-strong",
+  "problem": "two-sum",
+  "mode": "ai_assisted",
+  "code": "clean"
+ },
+ "g-b4fc314b": {
+  "seed": "seed-two-sum-late_verify",
+  "problem": "two-sum",
+  "mode": "ai_assisted",
+  "code": "messy"
+ },
+ "g-ea8170a1": {
+  "seed": "seed-two-sum-flailing",
+  "problem": "two-sum",
+  "mode": "ai_assisted",
+  "code": "brute"
+ },
+ "g-b7421a7c": {
+  "seed": "seed-two-sum-blind_trust",
+  "problem": "two-sum",
+  "mode": "ai_assisted",
+  "code": "buggy"
+ },
+ "g-fb0618f7": {
+  "seed": "seed-two-sum-catches_bug",
+  "problem": "two-sum",
+  "mode": "ai_assisted",
+  "code": "clean"
+ },
+ "g-73ae244c": {
+  "seed": "seed-longest-substring-handoff",
+  "problem": "longest-substring",
+  "mode": "ai_assisted",
+  "code": "clean"
+ },
+ "g-ae4e205c": {
+  "seed": "seed-longest-substring-strong",
+  "problem": "longest-substring",
+  "mode": "ai_assisted",
+  "code": "clean"
+ },
+ "g-cf51d019": {
+  "seed": "seed-longest-substring-late_verify",
+  "problem": "longest-substring",
+  "mode": "ai_assisted",
+  "code": "messy"
+ },
+ "g-5b0f22a8": {
+  "seed": "seed-longest-substring-flailing",
+  "problem": "longest-substring",
+  "mode": "ai_assisted",
+  "code": "brute"
+ },
+ "g-3cde173f": {
+  "seed": "seed-longest-substring-blind_trust",
+  "problem": "longest-substring",
+  "mode": "ai_assisted",
+  "code": "buggy"
+ },
+ "g-29ed8a14": {
+  "seed": "seed-longest-substring-catches_bug",
+  "problem": "longest-substring",
+  "mode": "ai_assisted",
+  "code": "clean"
+ },
+ "g-6c525846": {
+  "seed": "seed-valid-parentheses-handoff",
+  "problem": "valid-parentheses",
+  "mode": "ai_assisted",
+  "code": "clean"
+ },
+ "g-cb3f88c5": {
+  "seed": "seed-valid-parentheses-strong",
+  "problem": "valid-parentheses",
+  "mode": "ai_assisted",
+  "code": "clean"
+ },
+ "g-32cbbb4a": {
+  "seed": "seed-valid-parentheses-late_verify",
+  "problem": "valid-parentheses",
+  "mode": "ai_assisted",
+  "code": "messy"
+ },
+ "g-2cf738cd": {
+  "seed": "seed-valid-parentheses-flailing",
+  "problem": "valid-parentheses",
+  "mode": "ai_assisted",
+  "code": "brute"
+ },
+ "g-b17ccae3": {
+  "seed": "seed-valid-parentheses-blind_trust",
+  "problem": "valid-parentheses",
+  "mode": "ai_assisted",
+  "code": "buggy"
+ },
+ "g-49a9743d": {
+  "seed": "seed-valid-parentheses-catches_bug",
+  "problem": "valid-parentheses",
+  "mode": "ai_assisted",
+  "code": "clean"
+ },
+ "g-67968790": {
+  "seed": "seed-merge-intervals-handoff",
+  "problem": "merge-intervals",
+  "mode": "ai_assisted",
+  "code": "clean"
+ },
+ "g-38a6bdc2": {
+  "seed": "seed-merge-intervals-strong",
+  "problem": "merge-intervals",
+  "mode": "ai_assisted",
+  "code": "clean"
+ },
+ "g-5057dc7b": {
+  "seed": "seed-merge-intervals-late_verify",
+  "problem": "merge-intervals",
+  "mode": "ai_assisted",
+  "code": "messy"
+ },
+ "g-0531942d": {
+  "seed": "seed-merge-intervals-flailing",
+  "problem": "merge-intervals",
+  "mode": "ai_assisted",
+  "code": "brute"
+ },
+ "g-1e3b720e": {
+  "seed": "seed-merge-intervals-blind_trust",
+  "problem": "merge-intervals",
+  "mode": "ai_assisted",
+  "code": "buggy"
+ },
+ "g-018c2d80": {
+  "seed": "seed-merge-intervals-catches_bug",
+  "problem": "merge-intervals",
+  "mode": "ai_assisted",
+  "code": "clean"
+ },
+ "g-41d39db6": {
+  "seed": "seed-two-sum-solo-brute",
+  "problem": "two-sum",
+  "mode": "solo",
+  "code": "brute"
+ },
+ "g-cfb5ec56": {
+  "seed": "seed-longest-substring-solo-messy",
+  "problem": "longest-substring",
+  "mode": "solo",
+  "code": "messy"
+ },
+ "g-565c5efb": {
+  "seed": "seed-merge-intervals-solo-clean",
+  "problem": "merge-intervals",
+  "mode": "solo",
+  "code": "clean"
+ },
+ "g-8c53c4e3": {
+  "seed": "seed-valid-parentheses-interviewer-clean",
+  "problem": "valid-parentheses",
+  "mode": "interviewer",
+  "code": "clean"
+ },
+ "g-ae806716": {
+  "seed": "seed-two-sum-interviewer-messy",
+  "problem": "two-sum",
+  "mode": "interviewer",
+  "code": "messy"
+ },
+ "g-72a12f43": {
+  "seed": "seed-merge-intervals-interviewer-buggy",
+  "problem": "merge-intervals",
+  "mode": "interviewer",
+  "code": "buggy"
+ }
+}

@@ -1,0 +1,147 @@
+{
+ "id": "g-cf51d019",
+ "mode": "ai_assisted",
+ "language": "python",
+ "problem": {
+  "title": "Longest Substring Without Repeating Characters",
+  "statement": "Given a string s, return the length of the longest substring that contains no repeated characters.",
+  "constraints": "0 <= s.length <= 5 * 10^4; s may contain letters, digits, symbols and spaces.",
+  "optimal_time": "O(n)",
+  "optimal_space": "O(min(n, k)) for alphabet size k"
+ },
+ "time_limit_s": 2700,
+ "solve_time_s": 1889,
+ "final_code": "def length_of_longest_substring(s):\n    m = {}\n    l = 0\n    ans = 0\n    for r in range(len(s)):\n        c = s[r]\n        if c in m:\n            if m[c] >= l:\n                l = m[c] + 1\n        m[c] = r\n        if r - l + 1 > ans:\n            ans = r - l + 1\n    return ans\n",
+ "ai_pasted_chars": 27,
+ "events": [
+  {
+   "id": "p1",
+   "type": "prompt",
+   "ts": 60.0,
+   "text": "I need the length of the longest substring with all distinct characters. What approaches are there?"
+  },
+  {
+   "id": "a1",
+   "type": "ai_reply",
+   "ts": 304.0,
+   "text": "Brute force checks every substring, O(n^3). A sliding window with a last-seen map is O(n)."
+  },
+  {
+   "id": "p2",
+   "type": "prompt",
+   "ts": 532.0,
+   "text": "I'll go with the faster one. Any pitfalls in how I update state?"
+  },
+  {
+   "id": "a2",
+   "type": "ai_reply",
+   "ts": 776.0,
+   "text": "Update the result after adjusting your pointers or map, not before."
+  },
+  {
+   "id": "p3",
+   "type": "prompt",
+   "ts": 1004.0,
+   "text": "What edge cases should I check now that my code passes the examples?"
+  },
+  {
+   "id": "a3",
+   "type": "ai_reply",
+   "ts": 1248.0,
+   "text": "Try the smallest inputs, duplicates, and the boundaries described in the constraints."
+  },
+  {
+   "id": "r1",
+   "type": "run",
+   "ts": 1849.0,
+   "text": "3 of 3 visible tests passed"
+  },
+  {
+   "id": "s1",
+   "type": "submit",
+   "ts": 1889.0,
+   "text": "10 of 10 hidden tests passed"
+  }
+ ],
+ "tests": [
+  {
+   "name": "\"abcabcbb\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "\"bbbbb\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "\"pwwkew\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "empty string",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "single char",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "\"abba\" (repeat left of window)",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "only spaces",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "symbols and spaces",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "\"dvdf\"",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "\"tmmzuxt\"",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "all distinct",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "50k random",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "50k one char",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  }
+ ],
+ "source": "seed"
+}

@@ -1,0 +1,129 @@
+{
+ "id": "g-b17ccae3",
+ "mode": "ai_assisted",
+ "language": "python",
+ "problem": {
+  "title": "Valid Parentheses",
+  "statement": "Given a string s containing only the characters ( ) [ ] { }, return true if every opening bracket is closed by the same type of bracket in the correct order, and every closing bracket has a matching opening bracket.",
+  "constraints": "1 <= s.length <= 10^4; s contains only ()[]{}.",
+  "optimal_time": "O(n)",
+  "optimal_space": "O(n)"
+ },
+ "time_limit_s": 2700,
+ "solve_time_s": 1080,
+ "final_code": "def is_valid(s):\n    pairs = {')': '(', ']': '[', '}': '{'}\n    stack = []\n    for ch in s:\n        if ch in pairs:\n            if not stack or stack.pop() != pairs[ch]:\n                return False\n        else:\n            stack.append(ch)\n    return True\n",
+ "ai_pasted_chars": 0,
+ "events": [
+  {
+   "id": "p1",
+   "type": "prompt",
+   "ts": 60.0,
+   "text": "I need to check that every bracket in a string is closed by the same type, in the right order. I'll push opening brackets on a stack and pop when I see the matching closer."
+  },
+  {
+   "id": "a1",
+   "type": "ai_reply",
+   "ts": 222.0,
+   "text": "Just pop on each closer and compare. If the loop finishes without a mismatch, return True."
+  },
+  {
+   "id": "p2",
+   "type": "prompt",
+   "ts": 368.0,
+   "text": "ok great, so that's all I need?"
+  },
+  {
+   "id": "a2",
+   "type": "ai_reply",
+   "ts": 530.0,
+   "text": "Yes, that should cover it."
+  },
+  {
+   "id": "p3",
+   "type": "prompt",
+   "ts": 676.0,
+   "text": "thanks, writing it now"
+  },
+  {
+   "id": "r1",
+   "type": "run",
+   "ts": 1040.0,
+   "text": "3 of 3 visible tests passed"
+  },
+  {
+   "id": "s1",
+   "type": "submit",
+   "ts": 1080.0,
+   "text": "5 of 8 hidden tests passed"
+  }
+ ],
+ "tests": [
+  {
+   "name": "\"()[]{}\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "\"(]\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "\"([])\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "single open",
+   "category": "edge",
+   "hidden": true,
+   "passed": false
+  },
+  {
+   "name": "single close",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "close first",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "interleaved wrong",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "deep nesting",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "unclosed at end",
+   "category": "edge",
+   "hidden": true,
+   "passed": false
+  },
+  {
+   "name": "10k balanced",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "10k off by one",
+   "category": "large",
+   "hidden": true,
+   "passed": false
+  }
+ ],
+ "source": "seed"
+}

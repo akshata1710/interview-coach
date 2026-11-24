@@ -1,0 +1,123 @@
+{
+ "id": "g-38a6bdc2",
+ "mode": "ai_assisted",
+ "language": "python",
+ "problem": {
+  "title": "Merge Intervals",
+  "statement": "Given an array of intervals where intervals[i] = [start, end], merge all overlapping intervals and return the non-overlapping intervals that cover all of the input. Intervals that touch (one ends where the next starts) overlap. Return them in any order.",
+  "constraints": "1 <= intervals.length <= 10^4; 0 <= start <= end <= 10^6.",
+  "optimal_time": "O(n log n)",
+  "optimal_space": "O(n)"
+ },
+ "time_limit_s": 2700,
+ "solve_time_s": 1215,
+ "final_code": "def merge(intervals: list[list[int]]) -> list[list[int]]:\n    merged = []\n    for start, end in sorted(intervals):\n        if merged and start <= merged[-1][1]:\n            merged[-1][1] = max(merged[-1][1], end)\n        else:\n            merged.append([start, end])\n    return merged\n",
+ "ai_pasted_chars": 0,
+ "events": [
+  {
+   "id": "p1",
+   "type": "prompt",
+   "ts": 60.0,
+   "text": "Up to 10^4 intervals, unsorted, and touching ones like [1,4],[4,5] count as overlapping. I'll sort by start, then extend the last merged interval while the next one starts before it ends. Can you check the idea before I code it?"
+  },
+  {
+   "id": "a1",
+   "type": "ai_reply",
+   "ts": 219.0,
+   "text": "That approach works and meets the target complexity. Watch the order of your updates."
+  },
+  {
+   "id": "p2",
+   "type": "prompt",
+   "ts": 362.0,
+   "text": "For touching intervals, should my overlap check be start <= last_end or start < last_end?"
+  },
+  {
+   "id": "a2",
+   "type": "ai_reply",
+   "ts": 521.0,
+   "text": "Good catch to ask. Yes, that case matters; handle it explicitly before updating your state."
+  },
+  {
+   "id": "p3",
+   "type": "prompt",
+   "ts": 664.0,
+   "text": "Which edge cases should I plan for: a single interval, one containing another, touching ends?"
+  },
+  {
+   "id": "a3",
+   "type": "ai_reply",
+   "ts": 823.0,
+   "text": "Those are the right ones to test; your plan covers them if the update order is right."
+  },
+  {
+   "id": "r1",
+   "type": "run",
+   "ts": 1175.0,
+   "text": "2 of 2 visible tests passed"
+  },
+  {
+   "id": "s1",
+   "type": "submit",
+   "ts": 1215.0,
+   "text": "7 of 7 hidden tests passed"
+  }
+ ],
+ "tests": [
+  {
+   "name": "example 1",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "touching",
+   "category": "edge",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "single interval",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "unsorted input",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "one contains another",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "all merge",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "zero-length",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "no overlaps",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "10k random",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  }
+ ],
+ "source": "seed"
+}

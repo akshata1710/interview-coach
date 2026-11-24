@@ -1,0 +1,8 @@
+# The CI gate for judge-to-human agreement. Scores are on a 0-4 scale.
+# Start here, then tighten once you know how often two humans agree with each other.
+
+min_sessions: 20                    # below this, the gate reports but doesn't fail
+min_within_half: 0.80               # share of judge scores within ±0.5 of the human score
+min_within_half_per_dimension: 0.60 # no single dimension may fall below this (checked once it has 5+ scores)
+max_mae: 0.75                       # mean absolute error
+max_drop_from_baseline: 0.05        # a change may not lower overall agreement by more than 5 points

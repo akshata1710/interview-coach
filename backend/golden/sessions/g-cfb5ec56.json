@@ -1,0 +1,111 @@
+{
+ "id": "g-cfb5ec56",
+ "mode": "solo",
+ "language": "python",
+ "problem": {
+  "title": "Longest Substring Without Repeating Characters",
+  "statement": "Given a string s, return the length of the longest substring that contains no repeated characters.",
+  "constraints": "0 <= s.length <= 5 * 10^4; s may contain letters, digits, symbols and spaces.",
+  "optimal_time": "O(n)",
+  "optimal_space": "O(min(n, k)) for alphabet size k"
+ },
+ "time_limit_s": 2700,
+ "solve_time_s": 1485,
+ "final_code": "def length_of_longest_substring(s):\n    m = {}\n    l = 0\n    ans = 0\n    for r in range(len(s)):\n        c = s[r]\n        if c in m:\n            if m[c] >= l:\n                l = m[c] + 1\n        m[c] = r\n        if r - l + 1 > ans:\n            ans = r - l + 1\n    return ans\n",
+ "ai_pasted_chars": 0,
+ "events": [
+  {
+   "id": "r1",
+   "type": "run",
+   "ts": 1445.0,
+   "text": "3 of 3 visible tests passed"
+  },
+  {
+   "id": "s1",
+   "type": "submit",
+   "ts": 1485.0,
+   "text": "10 of 10 hidden tests passed"
+  }
+ ],
+ "tests": [
+  {
+   "name": "\"abcabcbb\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "\"bbbbb\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "\"pwwkew\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "empty string",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "single char",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "\"abba\" (repeat left of window)",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "only spaces",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "symbols and spaces",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "\"dvdf\"",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "\"tmmzuxt\"",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "all distinct",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "50k random",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "50k one char",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  }
+ ],
+ "source": "seed"
+}

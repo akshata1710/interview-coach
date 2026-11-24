@@ -1,0 +1,129 @@
+{
+ "id": "g-5c49b4cd",
+ "mode": "ai_assisted",
+ "language": "python",
+ "problem": {
+  "title": "Two Sum",
+  "statement": "Given an array of integers nums and an integer target, return the indices of the two numbers that add up to target. Each input has exactly one solution, and you may not use the same element twice. Return the indices in any order.",
+  "constraints": "2 <= nums.length <= 10^4; -10^9 <= nums[i], target <= 10^9; exactly one valid answer exists.",
+  "optimal_time": "O(n)",
+  "optimal_space": "O(n)"
+ },
+ "time_limit_s": 2700,
+ "solve_time_s": 1215,
+ "final_code": "def two_sum(nums: list[int], target: int) -> list[int]:\n    seen = {}\n    for i, x in enumerate(nums):\n        if target - x in seen:\n            return [seen[target - x], i]\n        seen[x] = i\n    return []\n",
+ "ai_pasted_chars": 0,
+ "events": [
+  {
+   "id": "p1",
+   "type": "prompt",
+   "ts": 60.0,
+   "text": "Array up to 10^4 ints, values can be negative, exactly one answer, can't reuse an element. I'm thinking a hash map from value to index so I can do it in one pass, O(n). Can you check the idea before I code it?"
+  },
+  {
+   "id": "a1",
+   "type": "ai_reply",
+   "ts": 219.0,
+   "text": "That approach works and meets the target complexity. Watch the order of your updates."
+  },
+  {
+   "id": "p2",
+   "type": "prompt",
+   "ts": 362.0,
+   "text": "If I insert the current number before checking for its complement, can [3,3] with target 6 break?"
+  },
+  {
+   "id": "a2",
+   "type": "ai_reply",
+   "ts": 521.0,
+   "text": "Good catch to ask. Yes, that case matters; handle it explicitly before updating your state."
+  },
+  {
+   "id": "p3",
+   "type": "prompt",
+   "ts": 664.0,
+   "text": "Before I code it: what edge cases should I handle, like duplicates or negatives?"
+  },
+  {
+   "id": "a3",
+   "type": "ai_reply",
+   "ts": 823.0,
+   "text": "Those are the right ones to test; your plan covers them if the update order is right."
+  },
+  {
+   "id": "r1",
+   "type": "run",
+   "ts": 1175.0,
+   "text": "3 of 3 visible tests passed"
+  },
+  {
+   "id": "s1",
+   "type": "submit",
+   "ts": 1215.0,
+   "text": "7 of 7 hidden tests passed"
+  }
+ ],
+ "tests": [
+  {
+   "name": "[2,7,11,15], 9",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "[3,2,4], 6",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "[3,3], 6",
+   "category": "edge",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "negatives",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "duplicates",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "zeros",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "two elements",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "answer at the end",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "large values",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "10k elements",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  }
+ ],
+ "source": "seed"
+}

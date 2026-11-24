@@ -1,0 +1,135 @@
+{
+ "id": "g-cb3f88c5",
+ "mode": "ai_assisted",
+ "language": "python",
+ "problem": {
+  "title": "Valid Parentheses",
+  "statement": "Given a string s containing only the characters ( ) [ ] { }, return true if every opening bracket is closed by the same type of bracket in the correct order, and every closing bracket has a matching opening bracket.",
+  "constraints": "1 <= s.length <= 10^4; s contains only ()[]{}.",
+  "optimal_time": "O(n)",
+  "optimal_space": "O(n)"
+ },
+ "time_limit_s": 2700,
+ "solve_time_s": 1215,
+ "final_code": "def is_valid(s: str) -> bool:\n    pairs = {')': '(', ']': '[', '}': '{'}\n    stack = []\n    for ch in s:\n        if ch in pairs:\n            if not stack or stack.pop() != pairs[ch]:\n                return False\n        else:\n            stack.append(ch)\n    return not stack\n",
+ "ai_pasted_chars": 0,
+ "events": [
+  {
+   "id": "p1",
+   "type": "prompt",
+   "ts": 60.0,
+   "text": "String up to 10^4 chars, only ()[]{}. Target O(n) time. I'll push opening brackets on a stack and pop when I see the matching closer. Can you check the idea before I code it?"
+  },
+  {
+   "id": "a1",
+   "type": "ai_reply",
+   "ts": 219.0,
+   "text": "That approach works and meets the target complexity. Watch the order of your updates."
+  },
+  {
+   "id": "p2",
+   "type": "prompt",
+   "ts": 362.0,
+   "text": "What should happen when a closing bracket arrives and the stack is already empty?"
+  },
+  {
+   "id": "a2",
+   "type": "ai_reply",
+   "ts": 521.0,
+   "text": "Good catch to ask. Yes, that case matters; handle it explicitly before updating your state."
+  },
+  {
+   "id": "p3",
+   "type": "prompt",
+   "ts": 664.0,
+   "text": "What edge cases should I test first: a lone closer, a leftover opener, interleaving like ([)]?"
+  },
+  {
+   "id": "a3",
+   "type": "ai_reply",
+   "ts": 823.0,
+   "text": "Those are the right ones to test; your plan covers them if the update order is right."
+  },
+  {
+   "id": "r1",
+   "type": "run",
+   "ts": 1175.0,
+   "text": "3 of 3 visible tests passed"
+  },
+  {
+   "id": "s1",
+   "type": "submit",
+   "ts": 1215.0,
+   "text": "8 of 8 hidden tests passed"
+  }
+ ],
+ "tests": [
+  {
+   "name": "\"()[]{}\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "\"(]\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "\"([])\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "single open",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "single close",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "close first",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "interleaved wrong",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "deep nesting",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "unclosed at end",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "10k balanced",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "10k off by one",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  }
+ ],
+ "source": "seed"
+}

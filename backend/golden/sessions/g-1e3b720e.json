@@ -1,0 +1,117 @@
+{
+ "id": "g-1e3b720e",
+ "mode": "ai_assisted",
+ "language": "python",
+ "problem": {
+  "title": "Merge Intervals",
+  "statement": "Given an array of intervals where intervals[i] = [start, end], merge all overlapping intervals and return the non-overlapping intervals that cover all of the input. Intervals that touch (one ends where the next starts) overlap. Return them in any order.",
+  "constraints": "1 <= intervals.length <= 10^4; 0 <= start <= end <= 10^6.",
+  "optimal_time": "O(n log n)",
+  "optimal_space": "O(n)"
+ },
+ "time_limit_s": 2700,
+ "solve_time_s": null,
+ "final_code": "def merge(intervals):\n    merged = []\n    for start, end in sorted(intervals):\n        if merged and start < merged[-1][1]:\n            merged[-1][1] = max(merged[-1][1], end)\n        else:\n            merged.append([start, end])\n    return merged\n",
+ "ai_pasted_chars": 0,
+ "events": [
+  {
+   "id": "p1",
+   "type": "prompt",
+   "ts": 60.0,
+   "text": "I need to merge overlapping intervals and return the merged list. I'll sort by start, then extend the last merged interval while the next one starts before it ends."
+  },
+  {
+   "id": "a1",
+   "type": "ai_reply",
+   "ts": 260.0,
+   "text": "After sorting, merge when start < last_end. Touching intervals stay separate."
+  },
+  {
+   "id": "p2",
+   "type": "prompt",
+   "ts": 444.0,
+   "text": "ok great, so that's all I need?"
+  },
+  {
+   "id": "a2",
+   "type": "ai_reply",
+   "ts": 644.0,
+   "text": "Yes, that should cover it."
+  },
+  {
+   "id": "p3",
+   "type": "prompt",
+   "ts": 828.0,
+   "text": "thanks, writing it now"
+  },
+  {
+   "id": "r1",
+   "type": "run",
+   "ts": 2390.0,
+   "text": "1 of 2 visible tests passed"
+  },
+  {
+   "id": "s1",
+   "type": "submit",
+   "ts": 2430.0,
+   "text": "4 of 7 hidden tests passed"
+  }
+ ],
+ "tests": [
+  {
+   "name": "example 1",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "touching",
+   "category": "edge",
+   "hidden": false,
+   "passed": false
+  },
+  {
+   "name": "single interval",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "unsorted input",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "one contains another",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "all merge",
+   "category": "typical",
+   "hidden": true,
+   "passed": false
+  },
+  {
+   "name": "zero-length",
+   "category": "edge",
+   "hidden": true,
+   "passed": false
+  },
+  {
+   "name": "no overlaps",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "10k random",
+   "category": "large",
+   "hidden": true,
+   "passed": false
+  }
+ ],
+ "source": "seed"
+}

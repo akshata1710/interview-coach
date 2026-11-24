@@ -1,0 +1,135 @@
+{
+ "id": "g-32cbbb4a",
+ "mode": "ai_assisted",
+ "language": "python",
+ "problem": {
+  "title": "Valid Parentheses",
+  "statement": "Given a string s containing only the characters ( ) [ ] { }, return true if every opening bracket is closed by the same type of bracket in the correct order, and every closing bracket has a matching opening bracket.",
+  "constraints": "1 <= s.length <= 10^4; s contains only ()[]{}.",
+  "optimal_time": "O(n)",
+  "optimal_space": "O(n)"
+ },
+ "time_limit_s": 2700,
+ "solve_time_s": 1889,
+ "final_code": "def is_valid(s):\n    st = []\n    for c in s:\n        if c == '(' or c == '[' or c == '{':\n            st.append(c)\n        else:\n            if len(st) == 0:\n                return False\n            t = st.pop()\n            if c == ')' and t != '(':\n                return False\n            if c == ']' and t != '[':\n                return False\n            if c == '}' and t != '{':\n                return False\n    if len(st) == 0:\n        return True\n    return False\n",
+ "ai_pasted_chars": 47,
+ "events": [
+  {
+   "id": "p1",
+   "type": "prompt",
+   "ts": 60.0,
+   "text": "I need to check that every bracket in a string is closed by the same type, in the right order. What approaches are there?"
+  },
+  {
+   "id": "a1",
+   "type": "ai_reply",
+   "ts": 304.0,
+   "text": "You can repeatedly delete matched pairs like \"()\" until nothing changes, or use a stack in one pass."
+  },
+  {
+   "id": "p2",
+   "type": "prompt",
+   "ts": 532.0,
+   "text": "I'll go with the faster one. Any pitfalls in how I update state?"
+  },
+  {
+   "id": "a2",
+   "type": "ai_reply",
+   "ts": 776.0,
+   "text": "Update the result after adjusting your pointers or map, not before."
+  },
+  {
+   "id": "p3",
+   "type": "prompt",
+   "ts": 1004.0,
+   "text": "What edge cases should I check now that my code passes the examples?"
+  },
+  {
+   "id": "a3",
+   "type": "ai_reply",
+   "ts": 1248.0,
+   "text": "Try the smallest inputs, duplicates, and the boundaries described in the constraints."
+  },
+  {
+   "id": "r1",
+   "type": "run",
+   "ts": 1849.0,
+   "text": "3 of 3 visible tests passed"
+  },
+  {
+   "id": "s1",
+   "type": "submit",
+   "ts": 1889.0,
+   "text": "8 of 8 hidden tests passed"
+  }
+ ],
+ "tests": [
+  {
+   "name": "\"()[]{}\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "\"(]\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "\"([])\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "single open",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "single close",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "close first",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "interleaved wrong",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "deep nesting",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "unclosed at end",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "10k balanced",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "10k off by one",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  }
+ ],
+ "source": "seed"
+}

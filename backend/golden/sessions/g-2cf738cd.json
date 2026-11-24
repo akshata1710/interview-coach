@@ -1,0 +1,159 @@
+{
+ "id": "g-2cf738cd",
+ "mode": "ai_assisted",
+ "language": "python",
+ "problem": {
+  "title": "Valid Parentheses",
+  "statement": "Given a string s containing only the characters ( ) [ ] { }, return true if every opening bracket is closed by the same type of bracket in the correct order, and every closing bracket has a matching opening bracket.",
+  "constraints": "1 <= s.length <= 10^4; s contains only ()[]{}.",
+  "optimal_time": "O(n)",
+  "optimal_space": "O(n)"
+ },
+ "time_limit_s": 2700,
+ "solve_time_s": 2565,
+ "final_code": "def is_valid(s):\n    prev = None\n    while prev != s:\n        prev = s\n        s = s.replace('()', '').replace('[]', '').replace('{}', '')\n    return s == ''\n",
+ "ai_pasted_chars": 134,
+ "events": [
+  {
+   "id": "p1",
+   "type": "prompt",
+   "ts": 60.0,
+   "text": "valid parentheses problem, write python"
+  },
+  {
+   "id": "a1",
+   "type": "ai_reply",
+   "ts": 281.0,
+   "text": "You can repeatedly delete matched pairs like \"()\" until nothing changes, or use a stack in one pass."
+  },
+  {
+   "id": "p2",
+   "type": "prompt",
+   "ts": 486.0,
+   "text": "just give me the code"
+  },
+  {
+   "id": "a2",
+   "type": "ai_reply",
+   "ts": 707.0,
+   "text": "Here's a straightforward version:\n\n```python\ndef is_valid(s):\n    prev = None\n    while prev != s:\n        prev = s\n        s = s.replace('()', '').replace('[]', '').replace('{}', '')\n    return s == ''\n```"
+  },
+  {
+   "id": "p3",
+   "type": "prompt",
+   "ts": 912.0,
+   "text": "it doesn't work"
+  },
+  {
+   "id": "a3",
+   "type": "ai_reply",
+   "ts": 1133.0,
+   "text": "Can you share the failing input and what you got?"
+  },
+  {
+   "id": "p4",
+   "type": "prompt",
+   "ts": 1338.0,
+   "text": "doesn't work, fix it"
+  },
+  {
+   "id": "a4",
+   "type": "ai_reply",
+   "ts": 1559.0,
+   "text": "Without the error it's hard to tell. Here's the code again; check your function name.\n\n```python\ndef is_valid(s):\n    prev = None\n    while prev != s:\n        prev = s\n        s = s.replace('()', '').replace('[]', '').replace('{}', '')\n    return s == ''\n```"
+  },
+  {
+   "id": "p5",
+   "type": "prompt",
+   "ts": 1764.0,
+   "text": "try again"
+  },
+  {
+   "id": "a5",
+   "type": "ai_reply",
+   "ts": 1985.0,
+   "text": "The code above is correct for the examples; it may be slow on large inputs."
+  },
+  {
+   "id": "r1",
+   "type": "run",
+   "ts": 2525.0,
+   "text": "3 of 3 visible tests passed"
+  },
+  {
+   "id": "s1",
+   "type": "submit",
+   "ts": 2565.0,
+   "text": "8 of 8 hidden tests passed"
+  }
+ ],
+ "tests": [
+  {
+   "name": "\"()[]{}\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "\"(]\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "\"([])\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "single open",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "single close",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "close first",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "interleaved wrong",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "deep nesting",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "unclosed at end",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "10k balanced",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "10k off by one",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  }
+ ],
+ "source": "seed"
+}

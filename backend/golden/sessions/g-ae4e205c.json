@@ -1,0 +1,147 @@
+{
+ "id": "g-ae4e205c",
+ "mode": "ai_assisted",
+ "language": "python",
+ "problem": {
+  "title": "Longest Substring Without Repeating Characters",
+  "statement": "Given a string s, return the length of the longest substring that contains no repeated characters.",
+  "constraints": "0 <= s.length <= 5 * 10^4; s may contain letters, digits, symbols and spaces.",
+  "optimal_time": "O(n)",
+  "optimal_space": "O(min(n, k)) for alphabet size k"
+ },
+ "time_limit_s": 2700,
+ "solve_time_s": 1215,
+ "final_code": "def length_of_longest_substring(s: str) -> int:\n    last_seen = {}\n    left = best = 0\n    for right, ch in enumerate(s):\n        if ch in last_seen and last_seen[ch] >= left:\n            left = last_seen[ch] + 1\n        last_seen[ch] = right\n        best = max(best, right - left + 1)\n    return best\n",
+ "ai_pasted_chars": 0,
+ "events": [
+  {
+   "id": "p1",
+   "type": "prompt",
+   "ts": 60.0,
+   "text": "String up to 5*10^4 chars, any ASCII including spaces. I want O(n). My plan is a sliding window with a map of each char's last index; on a repeat I move left past it. Can you check the idea before I code it?"
+  },
+  {
+   "id": "a1",
+   "type": "ai_reply",
+   "ts": 219.0,
+   "text": "That approach works and meets the target complexity. Watch the order of your updates."
+  },
+  {
+   "id": "p2",
+   "type": "prompt",
+   "ts": 362.0,
+   "text": "When the repeated char was last seen before the current window starts, should left move at all?"
+  },
+  {
+   "id": "a2",
+   "type": "ai_reply",
+   "ts": 521.0,
+   "text": "Good catch to ask. Yes, that case matters; handle it explicitly before updating your state."
+  },
+  {
+   "id": "p3",
+   "type": "prompt",
+   "ts": 664.0,
+   "text": "Before I write it, which edge cases matter: empty string, all same char, something like abba?"
+  },
+  {
+   "id": "a3",
+   "type": "ai_reply",
+   "ts": 823.0,
+   "text": "Those are the right ones to test; your plan covers them if the update order is right."
+  },
+  {
+   "id": "r1",
+   "type": "run",
+   "ts": 1175.0,
+   "text": "3 of 3 visible tests passed"
+  },
+  {
+   "id": "s1",
+   "type": "submit",
+   "ts": 1215.0,
+   "text": "10 of 10 hidden tests passed"
+  }
+ ],
+ "tests": [
+  {
+   "name": "\"abcabcbb\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "\"bbbbb\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "\"pwwkew\"",
+   "category": "typical",
+   "hidden": false,
+   "passed": true
+  },
+  {
+   "name": "empty string",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "single char",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "\"abba\" (repeat left of window)",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "only spaces",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "symbols and spaces",
+   "category": "edge",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "\"dvdf\"",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "\"tmmzuxt\"",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "all distinct",
+   "category": "typical",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "50k random",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  },
+  {
+   "name": "50k one char",
+   "category": "large",
+   "hidden": true,
+   "passed": true
+  }
+ ],
+ "source": "seed"
+}
